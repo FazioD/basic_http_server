@@ -8,4 +8,11 @@
   },
   "author": "",
   "license": "ISC"
+},
+"homepage": "https://github.com/FazioD/http_and_tcp_servers",
+ "devDependencies": {
+   "chai": "^3.2.0",
+   "chai-http": "^1.0.0",
+   "mocha": "^2.3.2"
+ }
 }

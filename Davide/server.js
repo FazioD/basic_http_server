@@ -1,6 +1,7 @@
 'use strict';
-const http = require('http');
-const fs = require('fs');
+// 
+// const http = require('http');
+// const fs = require('fs');
 
 /*refactoring code from yesterday*/
 var server = http.createServer( function (req, res) => {
@@ -20,7 +21,11 @@ if(req.url === url && req.method === "GET" {
 }
 
 
-if(req.url) ===  '/greet' && method === 'POST'
+if(req.url) ===  '/greet' && method === 'POST') {
+      var parsed = '';
+      req.on('data', function(data);
+      return res.end();
+}
 
 
   // if (req.url === '/') {
@@ -29,8 +34,11 @@ if(req.url) ===  '/greet' && method === 'POST'
   //   return index.pipe(res);
   // }
 
-  res.writeHead(404, {'content-type': 'text/html'});
+  res.writeHead(404, {'content-type': 'text/plain'});
   res.write('404 Not Found');
   res.end();
 
-}).listen(3000, () => console.log('server up on 3000'));
+})
+
+server.listen(3000, () => console.log('server up on 3000'));
+});
