@@ -1,10 +1,10 @@
 'use strict';
-// 
+//
 // const http = require('http');
 // const fs = require('fs');
 
 /*refactoring code from yesterday*/
-var server = http.createServer( function (req, res) => {
+var server = http.createServer( function (req, res) {
 
   if (req.url === '/time') {
           var now = new Date().toString();
@@ -16,8 +16,10 @@ var server = http.createServer( function (req, res) => {
 var url = req.url.toString();
 var name = url.substring;
 
-if(req.url === url && req.method === "GET" {
-        res.writeHead(200), {'Content-type': 'application/json'});
+if(req.url === url && req.method === "GET") {
+    res.writeHead(200, {'Content-type': 'application/json'});
+    res.write('hello,' + name);
+    return res.end();
 }
 
 
