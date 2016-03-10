@@ -1,3 +1,5 @@
+'use strict'
+
 var chai = require('chai');
 var chaiHTTP = require('chai-http');
 chai.use(chaiHTTP);
@@ -12,16 +14,35 @@ describe('Vanilla HTTP server tests will give time or greet person by name', () 
             chai.request ('localhost:3000/greet')
                 .get('/Davide')
                 .end(function(err, res) {
-                  //get help to complete//
+                    if(err) {return err};
+                    expect(res.status).to.eql(200);
+                    expect(res.text).to.eql('Hello, Davide');
+                    done();
+            });
+        });
+
+        it('should give back time when GET/time', function(done){
+            chai.request('localhost:3000')
+                .get('/time')
+                .end(function(err, res) {
+                    if(err) {return err};
+                    expect(res.status).to.eql(200)
+                    done();
+            });
+        });
 
 
-  var html;
-  before((done) => {
-    fs.readFile(__dirname + '/../public/index.html', (err, data) => {
-      html = data.toString();
-      done();
-    })
-  })
+  // var html;
+  // before((done) => {
+  //   fs.readFile(__dirname + '/../public/index.html', (err, data) => {
+  //     html = data.toString();
+  //     done();
+  //   })
+  // })
+
+
+
+
 //   it('should respond to /hello with hello', (done) => {
 //     request('localhost:3000')
 //       .get('/hello')
@@ -53,4 +74,4 @@ describe('Vanilla HTTP server tests will give time or greet person by name', () 
 //         done();
 //       })
 //   })
-// })
+// });
